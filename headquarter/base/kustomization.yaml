@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
 - Operators/sub.yaml
 - Kafka/kafka.yaml
-- Kafka/warehouse-secret.yaml
-- Kafka/warehouse-user.yaml
+- Kafka/kafka-secret.yaml
+- Kafka/kafka-user.yaml
