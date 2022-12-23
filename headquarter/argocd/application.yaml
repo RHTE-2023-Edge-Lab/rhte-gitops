@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/RHTE-2023-Edge-Lab/rhte-gitops.git
     targetRevision: dmartini-gitops
-    path: headquarter/
+    path: headquarter/overlays/
   destination:
     server: https://kubernetes.default.svc
-    namespace: headquarter/overlays
+    namespace: headquarter
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
