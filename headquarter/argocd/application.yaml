@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/RHTE-2023-Edge-Lab/rhte-gitops.git
     targetRevision: dmartini-gitops
-    path: headquarter/overlays/
+    path: headquarter/base/
   destination:
     server: https://kubernetes.default.svc
     namespace: headquarter
