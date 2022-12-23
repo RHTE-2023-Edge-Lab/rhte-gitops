@@ -7,11 +7,11 @@ spec:
   project: headquarter
   source:
     repoURL: https://github.com/RHTE-2023-Edge-Lab/rhte-gitops.git
-    targetRevision: main
+    targetRevision: dmartini-gitops
     path: headquarter/
   destination:
     server: https://kubernetes.default.svc
-    namespace: headquarter
+    namespace: headquarter/overlays
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
