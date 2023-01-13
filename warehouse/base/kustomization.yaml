@@ -6,7 +6,7 @@ resources:
 - AMQ/broker.yaml
 - AMQ/svc-mqtt-loadbalancer.yaml
 - Camel/camel-secret.yaml
-- Camel/camelUser.yaml
+- Camel/camel-user.yaml
 - Camel/kamelet.yaml
 - Camel/integration.yaml
 - Kafka/kafka.yaml
