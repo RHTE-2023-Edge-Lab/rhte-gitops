@@ -115,5 +115,5 @@ patchesJson6902:
     name: headquarter-<CITY>
   patch: |-
     - op: replace
-      path: "/spec/metadata/name"
+      path: "/metadata/name"
       value: "headquarter-stockholm"
