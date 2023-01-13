@@ -24,7 +24,7 @@ spec:
       project: warehouse
       source:
         repoURL: https://github.com/RHTE-2023-Edge-Lab/rhte-gitops.git
-        targetRevision: main
+        targetRevision: alegros-mirrormaker1
         path: warehouse/overlays/{{namespace}}
       destination:
         server: https://kubernetes.default.svc
