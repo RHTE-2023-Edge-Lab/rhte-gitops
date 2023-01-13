@@ -18,6 +18,8 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: kafka-client.allow.auto.create.topics
+          value: "false"
         - name: SMALLRYE_CONFIG_LOCATIONS
           value: /etc/camel-kafka-enricher/application.properties
         - name: ENRICHER_KAFKA_JAAS_CONFIG

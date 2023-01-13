@@ -11,7 +11,6 @@ resources:
 - ./kafka-streams-shipments/statefulset.yaml
 
 - ./camel-kafka-enricher/deployment.yaml
-- ./camel-kafka-enricher/kafka-topics.yaml
 - ./camel-kafka-enricher/kafka-user.yaml
 - ./camel-kafka-enricher/secret.yaml
 

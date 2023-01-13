@@ -32,12 +32,13 @@ patchesJson6902:
      - op: replace
        path: "/spec/sources/0/content"
        value: |
-          from("kamelet:mqtt-source?brokerUrl=tcp://mqtt-mqtt-0-svc:1883&topic=esp32&clientId=camel-k&username=admin&password=public")
+          from("paho:esp8266-out?brokerUrl=tcp://mqtt-mqtt-0-svc:1883&userName=admin&password=public")
           .convertBodyTo(String.class)
-          .setBody({ e -> [ id: e.in.body, timestamp: new Date().getTime() ] })
+          .setBody({ e -> [ parcelNumber: e.in.body, timestamp: new Date().getTime() ] })
           .marshal().json()
           //.to("log:info")
-          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=dublin-warehouse-in")- target:
+          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=dublin-warehouse-in")
+- target:
     kind: Secret
     version: v1
     name: "warehouse-user"
