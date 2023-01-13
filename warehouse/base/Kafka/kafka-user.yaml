@@ -11,7 +11,7 @@ spec:
       valueFrom:
         secretKeyRef:
           key: password
-          name: warehouse-paris-user
+          name: warehouse-<CITY>
     type: scram-sha-512
 ---
 apiVersion: v1

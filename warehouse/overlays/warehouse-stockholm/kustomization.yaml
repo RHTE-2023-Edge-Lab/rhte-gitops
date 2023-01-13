@@ -55,6 +55,9 @@ patchesJson6902:
      - op: replace
        path: "/metadata/name"
        value: "warehouse-stockholm"
+     - op: replace
+       path: "/spec/authentication/password/valueFrom/secretKeyRef/name"
+       value: "warehouse-stockholm"
      - op: add
        path: "/metadata/labels"
        value: 
