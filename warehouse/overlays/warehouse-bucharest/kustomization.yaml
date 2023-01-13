@@ -37,7 +37,7 @@ patchesJson6902:
           .setBody({ e -> [ parcelNumber: e.in.body, timestamp: new Date().getTime() ] })
           .marshal().json()
           //.to("log:info")
-          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=athens-warehouse-in")
+          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=bucharest-warehouse-in")
 - target:
     kind: Integration
     group: camel.apache.org
@@ -52,7 +52,7 @@ patchesJson6902:
           .setBody({ e -> [ parcelNumber: e.in.body, timestamp: new Date().getTime() ] })
           .marshal().json()
           //.to("log:info")
-          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=athens-warehouse-out")
+          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=bucharest-warehouse-out")
 - target:
     kind: Secret
     version: v1
