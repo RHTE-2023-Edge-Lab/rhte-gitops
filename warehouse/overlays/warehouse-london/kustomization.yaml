@@ -117,3 +117,6 @@ patchesJson6902:
     - op: replace
       path: "/metadata/name"
       value: "headquarter-london"
+    - op: replace
+      path: "/stringData/password"
+      value: "london"
