@@ -86,15 +86,6 @@ patchesJson6902:
          app.kubernetes.io/instance: warehouse-lisboa
          strimzi.io/cluster: warehouse-lisboa
 - target:
-    kind: Kafka
-    group: kafka.strimzi.io
-    version: v1beta2
-    name: "warehouse"
-  patch: |-
-     - op: replace
-       path: "/metadata/name"
-       value: "warehouse-lisboa"
-- target:
     kind: KafkaMirrorMaker
     group: kafka.strimzi.io
     version: v1beta2
