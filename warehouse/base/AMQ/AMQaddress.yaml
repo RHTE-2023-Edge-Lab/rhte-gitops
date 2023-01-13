@@ -1,8 +1,18 @@
 kind: ActiveMQArtemisAddress
 apiVersion: broker.amq.io/v1beta1
 metadata:
-  name: address
+  name: esp8266-in
 spec:
-  addressName: esp32
+  addressName: esp8266-in
   queueName: myQueue0
   routingType: anycast
+---
+kind: ActiveMQArtemisAddress
+apiVersion: broker.amq.io/v1beta1
+metadata:
+  name: esp8266-out
+spec:
+  addressName: esp8266-out
+  queueName: myQueue0
+  routingType: anycast
+
