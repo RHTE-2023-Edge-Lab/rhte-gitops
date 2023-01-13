@@ -14,4 +14,4 @@ resources:
 - Kafka/mirrormakeUser.yaml
 - Kafka/mirrormaker-secret.yaml
 - Kafka/topicKafka.yaml
-
+- Kafka/mirrormaker.yaml
