@@ -1,0 +1,29 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaMirrorMaker
+metadata:
+  name: mirrormaker
+spec:
+  version: 3.2.3
+  replicas: 1
+  consumer:
+    bootstrapServers: 'warehouse-kafka-bootstrap:9092'
+    groupId: gid-<CITY>
+    authentication:
+      passwordSecret:
+        password: password
+        secretName: warehouse-<CITY>
+      type: scram-sha-512
+      username: warehouse-<CITY>
+  producer:
+    bootstrapServers: '<TARGET_KAFKA_BOOTSTRAP_URL>:443'
+    authentication:
+      passwordSecret:
+        password: password
+        secretName: headquarter-<CITY>
+      type: scram-sha-512
+      username: warehouse-<CITY>    
+    tls:
+      trustedCertificates:
+        - certificate: ca.crt
+          secretName: headquarter-ca
+  include: .*

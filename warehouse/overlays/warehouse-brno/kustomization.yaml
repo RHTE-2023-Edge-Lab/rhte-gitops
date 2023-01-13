@@ -45,7 +45,7 @@ patchesJson6902:
   patch: |-
      - op: replace
        path: "/metadata/name"
-       value: "warehouse-brno-user"
+       value: "warehouse-brno"
 - target:
     kind: KafkaUser
     group: kafka.strimzi.io
@@ -91,3 +91,27 @@ patchesJson6902:
      - op: replace
        path: "/metadata/name"
        value: "warehouse-brno"
+- target:
+    kind: KafkaMirrorMaker
+    group: kafka.strimzi.io
+    version: v1beta2
+    name: mirrormaker
+  patch: |-
+    - op: replace
+      path: "/spec/consumer/groupId"
+      value: "gid-brno"
+    - op: replace
+      path: "/spec/consumer/authentication/passwordSecret/secretName"
+      value: "warehouse-brno"
+    - op: replace
+      path: "/spec/consumer/authentication/username"
+      value: "warehouse-brno"
+    - op: replace
+      path: "/spec/producer/bootstrapServers"
+      value: "headquarter-kafka-tls-bootstrap-headquarter.apps.cluster-cgc8r.cgc8r.sandbox587.opentlc.com"
+    - op: replace
+      path: "/spec/producer/authentication/passwordSecret/secretName"
+      value: "headquarter-brno"
+    - op: replace
+      path: "/spec/producer/authentication/username"
+      value: "headquarter-brno"
