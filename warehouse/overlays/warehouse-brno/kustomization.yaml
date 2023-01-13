@@ -108,4 +108,12 @@ patchesJson6902:
       value: "headquarter-brno"
     - op: replace
       path: "/spec/producer/authentication/username"
-      value: "headquarter-brno"
+      value: "warehouse-brno"
+- target:
+    kind: Secret
+    version: v1
+    name: headquarter-<CITY>
+  patch: |-
+    - op: replace
+      path: "/spec/metadata/name"
+      value: headquarter-brno
