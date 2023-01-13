@@ -58,33 +58,6 @@ patchesJson6902:
      - op: replace
        path: "/spec/authentication/password/valueFrom/secretKeyRef/name"
        value: "warehouse-bucharest"
-     - op: add
-       path: "/metadata/labels"
-       value: 
-         app.kubernetes.io/instance: warehouse-bucharest
-         strimzi.io/cluster: warehouse-bucharest
-- target:
-    kind: KafkaUser
-    group: kafka.strimzi.io
-    version: v1beta2
-    name: "camel"
-  patch: |-
-     - op: add
-       path: "/metadata/labels"
-       value: 
-         app.kubernetes.io/instance: warehouse-bucharest
-         strimzi.io/cluster: warehouse-bucharest
-- target:
-    kind: KafkaUser
-    group: kafka.strimzi.io
-    version: v1beta2
-    name: "mirrormaker"
-  patch: |-
-     - op: add
-       path: "/metadata/labels"
-       value: 
-         app.kubernetes.io/instance: warehouse-bucharest
-         strimzi.io/cluster: warehouse-bucharest
 - target:
     kind: KafkaMirrorMaker
     group: kafka.strimzi.io
