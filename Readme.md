@@ -25,9 +25,13 @@ Create the argoCD Application
 oc apply -f headquarter/argocd/application.yaml
 ```
 
-
-
 ## Configure the Warehouse (normally, not to be used as that's the target of the lab ;) )
+
+Create the CA secret
+```shell
+oc get secret headquarter-cluster-ca-cert -n headquarter -o jsonpath="{.data.ca\.crt}" | base64 -d > /tmp/ca.crt
+for city in {paris,brussels,london,lisboa,athens,stockholm,varsovia,dublin,bucharest,brno}; do oc create secret generic headquarter-ca --from-file /tmp/ca.crt -n warehouse-$city; done
+```
 
 Create the argoCD warehouse project
 ```shell
