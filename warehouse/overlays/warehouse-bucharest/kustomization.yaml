@@ -102,7 +102,7 @@ patchesJson6902:
       value: "warehouse-bucharest"
     - op: replace
       path: "/spec/producer/bootstrapServers"
-      value: "headquarter-kafka-tls-bootstrap-headquarter.apps.cluster-cgc8r.cgc8r.sandbox587.opentlc.com"
+      value: "headquarter-kafka-tls-bootstrap-headquarter.apps.cluster-cgc8r.cgc8r.sandbox587.opentlc.com:443"
     - op: replace
       path: "/spec/producer/authentication/passwordSecret/secretName"
       value: "headquarter-bucharest"
