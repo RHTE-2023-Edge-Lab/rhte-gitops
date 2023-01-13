@@ -27,7 +27,22 @@ patchesJson6902:
     kind: Integration
     group: camel.apache.org
     version: v1
-    name: "kafkaintegration"
+    name: "integration-in"
+  patch: |-
+     - op: replace
+       path: "/spec/sources/0/content"
+       value: |
+          from("paho:esp8266-in?brokerUrl=tcp://mqtt-mqtt-0-svc:1883&userName=admin&password=public")
+          .convertBodyTo(String.class)
+          .setBody({ e -> [ parcelNumber: e.in.body, timestamp: new Date().getTime() ] })
+          .marshal().json()
+          //.to("log:info")
+          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=athens-warehouse-in")
+- target:
+    kind: Integration
+    group: camel.apache.org
+    version: v1
+    name: "integration-out"
   patch: |-
      - op: replace
        path: "/spec/sources/0/content"
@@ -37,7 +52,7 @@ patchesJson6902:
           .setBody({ e -> [ parcelNumber: e.in.body, timestamp: new Date().getTime() ] })
           .marshal().json()
           //.to("log:info")
-          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=dublin-warehouse-in")
+          .to("kamelet:kafka-sink-scram?bootstrapServers=warehouse-kafka-bootstrap:9092&user=camel&password=s3cr3t&topic=athens-warehouse-out")
 - target:
     kind: Secret
     version: v1
